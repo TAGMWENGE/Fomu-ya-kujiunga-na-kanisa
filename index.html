@@ -32,17 +32,14 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #888;
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
@@ -72,7 +69,8 @@
             <div>
                 <label for="fullName" class="block text-gray-700 text-sm font-semibold mb-2">Jina Kamili</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
-                    <span class="pl-3 pr-2 py-3"> <svg class="icon" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/></svg>
+                    <span class="pl-3 pr-2 py-3">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/></svg>
                     </span>
                     <input type="text" id="fullName" name="Jina Kamili" placeholder="Jina lako kamili"
                            class="flex-grow px-2 py-3 bg-transparent focus:outline-none" required>
@@ -217,7 +215,7 @@
                     <span class="pl-3 pr-2 py-3">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3-8H9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></svg>
                     </span>
-                    <input type="password" id="secretKey" name="Neno Siri" placeholder="Ingiza neno siri la usajili"
+                    <input type="password" id="secretKey" name="secretKey" placeholder="Ingiza neno siri la usajili"
                            class="flex-grow px-2 py-3 bg-transparent focus:outline-none" required>
                     <button type="button" id="toggleSecretKey" class="px-3 py-3 focus:outline-none">
                         <svg id="eyeIcon" class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -235,7 +233,7 @@
     </div>
 
     <script>
-        // URL ya Apps Script yako iliyochapishwa (BANDIKA URL YAKO MPYA HAPA!)
+        // URL ya Apps Script yako iliyochapishwa (BANDIKA URL YAKO HAPA!)
         const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbxmojSckr1sDUGmr6tHbWZkAuX1hFr73zl4FRcqQvRN-z3hCaBvFpdmRr6pFViYNrN1OQ/exec'; 
 
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
@@ -243,21 +241,27 @@
             const messageBox = document.getElementById('messageBox');
             messageBox.classList.add('hidden');
 
+            // Panga data katika muundo wa JavaScript object ili kuweka mpangilio
+            const data = {
+                'Jina Kamili': document.getElementById('fullName').value,
+                'Namba ya Simu': document.getElementById('phoneNumber').value,
+                'Barua Pepe': document.getElementById('email').value,
+                'Jinsia': document.getElementById('gender').value,
+                'Anuani ya Makazi': document.getElementById('address').value,
+                'Idara': document.getElementById('department').value,
+                'Ubatizo': document.getElementById('baptismStatus').value,
+                'Zoni': document.getElementById('zone').value,
+                'Kazi yako': document.getElementById('occupation').value,
+                'Hali ya Ndoa': document.getElementById('maritalStatus').value,
+                'Tarehe ya Usajili': new Date().toLocaleDateString('sw-TZ'),
+                'secretKey': document.getElementById('secretKey').value
+            };
+
             const formData = new FormData();
-            
-            // HII NDIO SEHEMU MUHIMU INAYOPANGA UPYA DATA KABLA YA KUITUMA.
-            // MPANGILIO HUU UMEANDALIWA ILI ULINGANE NA MPANGILIO WA GOOGLE SHEET YAKO.
-            formData.append('Jina Kamili', document.getElementById('fullName').value);
-            formData.append('Namba ya Simu', document.getElementById('phoneNumber').value);
-            formData.append('Barua Pepe', document.getElementById('email').value);
-            formData.append('Jinsia', document.getElementById('gender').value);
-            formData.append('Anuani ya Makazi', document.getElementById('address').value);
-            formData.append('Idara', document.getElementById('department').value);
-            formData.append('Ubatizo', document.getElementById('baptismStatus').value);
-            formData.append('Zoni', document.getElementById('zone').value);
-            formData.append('Kazi yako', document.getElementById('occupation').value);
-            formData.append('Hali ya Ndoa', document.getElementById('maritalStatus').value);
-            formData.append('Neno Siri', document.getElementById('secretKey').value);
+            // Sasa tunapanga data kwenye FormData kabla ya kuituma
+            for (const key in data) {
+                formData.append(key, data[key]);
+            }
 
             messageBox.classList.remove('hidden', 'bg-green-100', 'bg-red-100');
             messageBox.classList.add('bg-blue-100', 'text-blue-700');
@@ -297,11 +301,4 @@
             secretKeyInput.setAttribute('type', type);
 
             if (type === 'password') {
-                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>`; // Jicho wazi
-            } else {
-                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 .985-3.14 3.109-5.188 5.669-6.614m6.605 6.605a3 3 0 11-5.828-2.288m0 0a3 3 0 11-5.828-2.288"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2L10 10m2 2l2 2"></path>`; // Jicho lililofungwa
-            }
-        });
-    </script>
-</body>
-</html>
+                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0
