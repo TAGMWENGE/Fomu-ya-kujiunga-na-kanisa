@@ -1,21 +1,15 @@
-,<!-- Mwanzo wa Hati ya HTML -->
 <!DOCTYPE html>
 <html lang="sw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usajili T.A.G Mwenge Christian Centre</title>
-    <!-- Kuunganisha Tailwind CSS kwa ajili ya urembo wa haraka na rahisi -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Kuweka fonti ya Inter kwa ajili ya mwonekano bora */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Rangi ya nyuma isiyokoza */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             padding: 20px;
         }
         /* Rangi kuu ya kanisa inaweza kuwa bluu ya Assemblies of God */
@@ -55,9 +49,7 @@
     </style>
 </head>
 <body>
-    <!-- Kadi kuu ya usajili -->
-    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md border border-gray-200">
-        <!-- Sehemu ya Kichwa Kikuu cha Kanisa na Background ya Bluu -->
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md mx-auto my-8 border border-gray-200">
         <div class="primary-blue text-white p-4 rounded-t-xl -mx-8 -mt-8 mb-6 text-center">
             <h2 class="text-2xl font-bold">
                 TANZANIA ASSEMBLIES OF GOD
@@ -74,24 +66,19 @@
             Jisajili Hapa kuwa Mshirika wetu!
         </p>
 
-        <!-- Mstari wa kutenganisha -->
         <hr class="border-t-2 border-gray-300 my-6 rounded-full">
 
-        <!-- Fomu ya Usajili -->
         <form id="registrationForm" class="space-y-5">
-            <!-- Sehemu ya Jina Kamili -->
             <div>
                 <label for="fullName" class="block text-gray-700 text-sm font-semibold mb-2">Jina Kamili</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
-                    <span class="pl-3 pr-2 py-3"> <!-- Padding ya icon -->
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/></svg>
+                    <span class="pl-3 pr-2 py-3"> <svg class="icon" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/></svg>
                     </span>
                     <input type="text" id="fullName" name="Jina Kamili" placeholder="Jina lako kamili"
                            class="flex-grow px-2 py-3 bg-transparent focus:outline-none" required>
                 </div>
             </div>
 
-            <!-- Sehemu ya Namba ya Simu -->
             <div>
                 <label for="phoneNumber" class="block text-gray-700 text-sm font-semibold mb-2">Namba ya Simu</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -103,7 +90,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Barua Pepe (Email) -->
             <div>
                 <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Barua Pepe (Hiari)</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -115,7 +101,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Jinsia -->
             <div>
                 <label for="gender" class="block text-gray-700 text-sm font-semibold mb-2">Jinsia</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -123,7 +108,7 @@
                         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </span>
                     <select id="gender" name="Jinsia"
-                            class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
+                             class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
                         <option value="">Chagua Jinsia</option>
                         <option value="Mwanaume">Mwanaume</option>
                         <option value="Mwanamke">Mwanamke</option>
@@ -134,7 +119,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Anuani ya Makazi -->
             <div>
                 <label for="address" class="block text-gray-700 text-sm font-semibold mb-2">Anuani ya Makazi</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -146,7 +130,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Idara -->
             <div>
                 <label for="department" class="block text-gray-700 text-sm font-semibold mb-2">Idara</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -154,7 +137,7 @@
                         <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </span>
                     <select id="department" name="Idara"
-                            class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
+                             class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
                         <option value="">Chagua Idara</option>
                         <option value="Wanaume (CMF)">Wanaume (CMF)</option>
                         <option value="Wanawake (WWK)">Wanawake (WWK)</option>
@@ -167,7 +150,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Ubatizo -->
             <div>
                 <label for="baptismStatus" class="block text-gray-700 text-sm font-semibold mb-2">Ubatizo</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -175,7 +157,7 @@
                         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13.5V7H9v3.5H5.5L12 17l6.5-6.5H15V7h-4.5v-1.5z"/></svg>
                     </span>
                     <select id="baptismStatus" name="Ubatizo"
-                            class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
+                             class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
                         <option value="">Ubatizo katika maji mengi </option>
                         <option value="Nimebatizwa">Nimebatizwa</option>
                         <option value="Sijabatizwa">Sijabatizwa</option>
@@ -186,7 +168,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Zoni -->
             <div>
                 <label for="zone" class="block text-gray-700 text-sm font-semibold mb-2">Zoni (Hiari)</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -198,7 +179,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Kazi yako -->
             <div>
                 <label for="occupation" class="block text-gray-700 text-sm font-semibold mb-2">Kazi yako (Hiari)</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -210,7 +190,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu ya Hali ya Ndoa -->
             <div>
                 <label for="maritalStatus" class="block text-gray-700 text-sm font-semibold mb-2">Hali ya Ndoa</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -218,7 +197,7 @@
                         <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
                     </span>
                     <select id="maritalStatus" name="Hali ya Ndoa"
-                            class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
+                             class="flex-grow px-2 py-3 bg-white focus:outline-none appearance-none pr-8" required>
                         <option value="">Chagua hali ya ndoa</option>
                         <option value="Sijaoa/Sijaolewa">Sijaoa/Sijaolewa (Single)</option>
                         <option value="Nimeoa">Nimeoa</option>
@@ -232,7 +211,6 @@
                 </div>
             </div>
 
-            <!-- Sehemu mpya ya Neno Siri la Siri (Secret Key) -->
             <div>
                 <label for="secretKey" class="block text-gray-700 text-sm font-semibold mb-2">Neno Siri la Siri</label>
                 <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-primary-blue">
@@ -247,14 +225,12 @@
                 </div>
             </div>
 
-            <!-- Kitufe cha Kujisajili -->
             <button type="submit"
                     class="w-full primary-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 shadow-md">
                 Jisajili Sasa
             </button>
         </form>
 
-        <!-- Sehemu ya ujumbe wa mafanikio au hitilafu -->
         <div id="messageBox" class="mt-6 p-4 rounded-lg text-center hidden"></div>
     </div>
 
