@@ -241,7 +241,7 @@
             const messageBox = document.getElementById('messageBox');
             messageBox.classList.add('hidden');
 
-            // Panga data katika muundo wa JavaScript object ili kuweka mpangilio
+            // Hii ni sehemu muhimu inayopanga upya data
             const data = {
                 'Jina Kamili': document.getElementById('fullName').value,
                 'Namba ya Simu': document.getElementById('phoneNumber').value,
@@ -258,7 +258,6 @@
             };
 
             const formData = new FormData();
-            // Sasa tunapanga data kwenye FormData kabla ya kuituma
             for (const key in data) {
                 formData.append(key, data[key]);
             }
@@ -273,6 +272,7 @@
             })
             .then(response => response.text())
             .then(data => {
+                // Sasa tunachunguza data kama ilivyo kwenye Apps Script
                 if (data.includes("Mafanikio")) {
                     messageBox.classList.remove('bg-blue-100', 'text-blue-700', 'bg-red-100', 'text-red-700');
                     messageBox.classList.add('bg-green-100', 'text-green-700');
@@ -301,4 +301,11 @@
             secretKeyInput.setAttribute('type', type);
 
             if (type === 'password') {
-                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0
+                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>`;
+            } else {
+                eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 .985-3.14 3.109-5.188 5.669-6.614m6.605 6.605a3 3 0 11-5.828-2.288m0 0a3 3 0 11-5.828-2.288"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2L10 10m2 2l2 2"></path>`;
+            }
+        });
+    </script>
+</body>
+</html>
