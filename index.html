@@ -215,7 +215,7 @@
                     <span class="pl-3 pr-2 py-3">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3-8H9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></svg>
                     </span>
-                    <input type="password" id="secretKey" name="secretKey" placeholder="Ingiza neno siri la usajili"
+                    <input type="password" id="secretKey" name="Neno Siri" placeholder="Ingiza neno siri la usajili"
                            class="flex-grow px-2 py-3 bg-transparent focus:outline-none" required>
                     <button type="button" id="toggleSecretKey" class="px-3 py-3 focus:outline-none">
                         <svg id="eyeIcon" class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -241,26 +241,21 @@
             const messageBox = document.getElementById('messageBox');
             messageBox.classList.add('hidden');
 
-            // Hii ni sehemu muhimu inayopanga upya data
-            const data = {
-                'Jina Kamili': document.getElementById('fullName').value,
-                'Namba ya Simu': document.getElementById('phoneNumber').value,
-                'Barua Pepe': document.getElementById('email').value,
-                'Jinsia': document.getElementById('gender').value,
-                'Anuani ya Makazi': document.getElementById('address').value,
-                'Idara': document.getElementById('department').value,
-                'Ubatizo': document.getElementById('baptismStatus').value,
-                'Zoni': document.getElementById('zone').value,
-                'Kazi yako': document.getElementById('occupation').value,
-                'Hali ya Ndoa': document.getElementById('maritalStatus').value,
-                'Tarehe ya Usajili': new Date().toLocaleDateString('sw-TZ'),
-                'secretKey': document.getElementById('secretKey').value
-            };
-
             const formData = new FormData();
-            for (const key in data) {
-                formData.append(key, data[key]);
-            }
+            
+            // Tunahakikisha mpangilio unalingana na ule wa Google Sheet
+            formData.append('Jina Kamili', document.getElementById('fullName').value);
+            formData.append('Namba ya Simu', document.getElementById('phoneNumber').value);
+            formData.append('Barua Pepe', document.getElementById('email').value);
+            formData.append('Jinsia', document.getElementById('gender').value);
+            formData.append('Anuani ya Makazi', document.getElementById('address').value);
+            formData.append('Idara', document.getElementById('department').value);
+            formData.append('Ubatizo', document.getElementById('baptismStatus').value);
+            formData.append('Zoni', document.getElementById('zone').value);
+            formData.append('Kazi yako', document.getElementById('occupation').value);
+            formData.append('Hali ya Ndoa', document.getElementById('maritalStatus').value);
+            formData.append('Neno Siri', document.getElementById('secretKey').value); // Hapa ndipo 'Neno Siri' inapotumwa
+            formData.append('Tarehe ya Usajili', new Date().toLocaleDateString('sw-TZ'));
 
             messageBox.classList.remove('hidden', 'bg-green-100', 'bg-red-100');
             messageBox.classList.add('bg-blue-100', 'text-blue-700');
@@ -272,7 +267,6 @@
             })
             .then(response => response.text())
             .then(data => {
-                // Sasa tunachunguza data kama ilivyo kwenye Apps Script
                 if (data.includes("Mafanikio")) {
                     messageBox.classList.remove('bg-blue-100', 'text-blue-700', 'bg-red-100', 'text-red-700');
                     messageBox.classList.add('bg-green-100', 'text-green-700');
