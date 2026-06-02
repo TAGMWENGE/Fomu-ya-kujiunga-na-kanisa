@@ -743,10 +743,11 @@ formData.append(
     ? tareheKuokoka.split("-").reverse().join("/")
     : ""
 );
-      formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
-      formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
-      formData.append('Neno Siri', document.getElementById('secretKey').value);
-      formData.append('Tarehe ya Usajili', registrationDate.value);
+
+formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
+formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
+formData.append('Neno Siri', document.getElementById('secretKey').value);
+formData.append('Tarehe ya Usajili', registrationDate.value);
 
       showMessage('loading', '<strong>Inatuma fomu...</strong><br>Tafadhali subiri kidogo.');
 
