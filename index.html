@@ -577,12 +577,12 @@
           </div>
 
           <div class="field">
-            <label for="zone">Zoni (Hiari)</label>
+            <label for="zone">Zoni <span class="required">*</span></label>
             <div class="control">
               <div class="iconbox">
                 <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm0 7.8L6.2 7 12 4.2 17.8 7 12 9.8zM5 11.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg>
               </div>
-              <input id="zone" name="Zoni" type="text" placeholder="Mfano: Zoni ya Sinza">
+              <input id="zone" name="Zoni" type="text" placeholder="Mfano: Zoni ya Sinza" required>
             </div>
           </div>
         </div>
@@ -659,6 +659,20 @@
           </div>
         </div>
 
+
+        <div class="section-title"><span>04</span> Uthibitisho</div>
+
+        <div class="field">
+          <label for="secretKey">Neno Siri <span class="required">*</span></label>
+          <div class="control">
+            <div class="iconbox">
+              <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3-9H9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></svg>
+            </div>
+            <input id="secretKey" name="Neno Siri" type="password" placeholder="Ingiza neno siri ulilopewa" required>
+          </div>
+          <div class="hint">Neno siri hutolewa na uongozi wa kanisa kwa ajili ya kulinda taarifa za usajili.</div>
+        </div>
+
         <input type="hidden" name="Tarehe ya Usajili" id="registrationDate">
 
         <div class="button-row">
@@ -724,6 +738,7 @@
       formData.append('Tarehe ya Kuokoka', document.getElementById('salvationDate').value);
       formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
       formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
+      formData.append('Neno Siri', document.getElementById('secretKey').value);
       formData.append('Tarehe ya Usajili', registrationDate.value);
 
       showMessage('loading', '<strong>Inatuma fomu...</strong><br>Tafadhali subiri kidogo.');
