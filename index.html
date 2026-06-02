@@ -691,7 +691,7 @@
   </main>
 
   <script>
-    const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbxmojSckr1sDUGmr6tHbWZkAuX1hFr73zl4FRcqQvRN-z3hCaBvFpdmRr6pFViYNrN1OQ/exec';
+    const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbw0_F7efgNT5kle8ieH1Y2BE2pX99dAOITKBSBduU8sG0bDqOGJQkhjktb2bpvlolBxsg/exec';
 
     const form = document.getElementById('registrationForm');
     const messageBox = document.getElementById('messageBox');
@@ -735,19 +735,15 @@
       formData.append('Zoni', document.getElementById('zone').value);
       formData.append('Kazi yako', document.getElementById('occupation').value);
       formData.append('Hali ya Ndoa', document.getElementById('maritalStatus').value);
-const tareheKuokoka = document.getElementById('salvationDate').value;
-
-formData.append(
-  'Tarehe ya Kuokoka',
-  tareheKuokoka
-    ? tareheKuokoka.split("-").reverse().join("/")
-    : ""
-);
-
-formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
-formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
-formData.append('Neno Siri', document.getElementById('secretKey').value);
-formData.append('Tarehe ya Usajili', registrationDate.value);
+      const tareheKuokoka = document.getElementById('salvationDate').value;
+      formData.append(
+        'Tarehe ya Kuokoka',
+        tareheKuokoka ? tareheKuokoka.split("-").reverse().join("/") : ""
+      );
+      formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
+      formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
+      formData.append('Neno Siri', document.getElementById('secretKey').value);
+      formData.append('Tarehe ya Usajili', registrationDate.value);
 
       showMessage('loading', '<strong>Inatuma fomu...</strong><br>Tafadhali subiri kidogo.');
 
