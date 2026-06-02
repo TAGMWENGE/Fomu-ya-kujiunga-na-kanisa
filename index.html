@@ -735,7 +735,14 @@
       formData.append('Zoni', document.getElementById('zone').value);
       formData.append('Kazi yako', document.getElementById('occupation').value);
       formData.append('Hali ya Ndoa', document.getElementById('maritalStatus').value);
-      formData.append('Tarehe ya Kuokoka', document.getElementById('salvationDate').value);
+const tareheKuokoka = document.getElementById('salvationDate').value;
+
+formData.append(
+  'Tarehe ya Kuokoka',
+  tareheKuokoka
+    ? tareheKuokoka.split("-").reverse().join("/")
+    : ""
+);
       formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
       formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
       formData.append('Neno Siri', document.getElementById('secretKey').value);
