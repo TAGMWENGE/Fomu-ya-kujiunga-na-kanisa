@@ -582,8 +582,25 @@
               <div class="iconbox">
                 <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm0 7.8L6.2 7 12 4.2 17.8 7 12 9.8zM5 11.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg>
               </div>
-              <input id="zone" name="Zoni" type="text" placeholder="Mfano: Zoni ya Sinza" required>
+              <select id="zone" name="Zoni" required>
+                <option value="">Chagua Zoni Yako</option>
+                <option value="Zoni 01 - Kimara na Mbezi">Zoni 01 - Kimara na Mbezi</option>
+                <option value="Zoni 02 - Ubungo, Sinza, Kijitonyama na Riverside">Zoni 02 - Ubungo, Sinza, Kijitonyama na Riverside</option>
+                <option value="Zoni 03 - Mabibo, Sahara, External, Maji Chumvi na Tabata">Zoni 03 - Mabibo, Sahara, External, Maji Chumvi na Tabata</option>
+                <option value="Zoni 04 - Mwenge Vijijini, Mwenge Sokoni, Mwenge Magorofani, Mikocheni, Kinondoni na Makumbusho">Zoni 04 - Mwenge Vijijini, Mwenge Sokoni, Mwenge Magorofani, Mikocheni, Kinondoni na Makumbusho</option>
+                <option value="Zoni 05 - Chuo Kikuu, Chuo cha Ardhi, Makongo Juu, Changanyikeni na Goba">Zoni 05 - Chuo Kikuu, Chuo cha Ardhi, Makongo Juu, Changanyikeni na Goba</option>
+                <option value="Zoni 06 - Mlalakuwa, Survey na Mlimani City">Zoni 06 - Mlalakuwa, Survey na Mlimani City</option>
+                <option value="Zoni 07 - Lugalo, Kawe, Kwa Komba, Bondeni na Tank Bovu">Zoni 07 - Lugalo, Kawe, Kwa Komba, Bondeni na Tank Bovu</option>
+                <option value="Zoni 08 - Mbezi Juu, Africana, Kunduchi Mbuyuni na Salasala Magengeni">Zoni 08 - Mbezi Juu, Africana, Kunduchi Mbuyuni na Salasala Magengeni</option>
+                <option value="Zoni 09 - Salasala Kwa Babu, Tegeta, Kibaoni, Wazo Hill, Ununio, Malobo, Basihaya na Chasimba">Zoni 09 - Salasala Kwa Babu, Tegeta, Kibaoni, Wazo Hill, Ununio, Malobo, Basihaya na Chasimba</option>
+                <option value="Zoni 10 - Boko, Boko Magengeni, Bunju A, Bunju B na Mabwepande">Zoni 10 - Boko, Boko Magengeni, Bunju A, Bunju B na Mabwepande</option>
+                <option value="Zoni 11 - Mapinga, Kerege na Kiharaka">Zoni 11 - Mapinga, Kerege na Kiharaka</option>
+                <option value="Zoni 12 - Kariakoo, Posta, Muhimbili, Upanga na Sea View">Zoni 12 - Kariakoo, Posta, Muhimbili, Upanga na Sea View</option>
+                <option value="Zoni 13 - Kigamboni">Zoni 13 - Kigamboni</option>
+                <option value="Zoni 14 - Kanisani, Sinza A, Sinza B, Mwenge Magorofani, Sinza Mori, Mapambano na Vinyago">Zoni 14 - Kanisani, Sinza A, Sinza B, Mwenge Magorofani, Sinza Mori, Mapambano na Vinyago</option>
+              </select>
             </div>
+            <div class="hint">Chagua zoni rasmi ya kanisa kulingana na eneo unaloishi.</div>
           </div>
         </div>
 
@@ -724,24 +741,24 @@
       setToday();
 
       const formData = new FormData();
-      formData.append('Jina Kamili', document.getElementById('fullName').value);
-      formData.append('Namba ya Simu', document.getElementById('phoneNumber').value);
-      formData.append('Barua Pepe', document.getElementById('email').value);
+      formData.append('Jina Kamili', document.getElementById('fullName').value.trim());
+      formData.append('Namba ya Simu', document.getElementById('phoneNumber').value.trim());
+      formData.append('Barua Pepe', document.getElementById('email').value.trim());
       formData.append('Jinsia', document.getElementById('gender').value);
-      formData.append('Anuani ya Makazi', document.getElementById('address').value);
+      formData.append('Anuani ya Makazi', document.getElementById('address').value.trim());
       formData.append('Idara', document.getElementById('department').value);
       formData.append('Ubatizo', document.getElementById('baptismStatus').value);
       formData.append('Zoni', document.getElementById('zone').value);
-      formData.append('Kazi yako', document.getElementById('occupation').value);
+      formData.append('Kazi yako', document.getElementById('occupation').value.trim());
       formData.append('Hali ya Ndoa', document.getElementById('maritalStatus').value);
       const tareheKuokoka = document.getElementById('salvationDate').value;
       formData.append(
         'Tarehe ya Kuokoka',
         tareheKuokoka ? tareheKuokoka.split("-").reverse().join("/") : ""
       );
-      formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value);
-      formData.append('Maelezo ya Ziada', document.getElementById('notes').value);
-      formData.append('Neno Siri', document.getElementById('secretKey').value);
+      formData.append('Kanisa Ulilotoka', document.getElementById('previousChurch').value.trim());
+      formData.append('Maelezo ya Ziada', document.getElementById('notes').value.trim());
+      formData.append('Neno Siri', document.getElementById('secretKey').value.trim());
       formData.append('Tarehe ya Usajili', registrationDate.value);
 
       showMessage('loading', '<strong>Inatuma fomu...</strong><br>Tafadhali subiri kidogo.');
