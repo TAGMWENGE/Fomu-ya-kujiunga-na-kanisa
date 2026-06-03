@@ -738,6 +738,22 @@
       event.preventDefault();
       setToday();
 
+const confirmSubmit = confirm(
+  "Hakiki taarifa zako kabla ya kutuma:\n\n" +
+  "Jina: " + document.getElementById("fullName").value + "\n" +
+  "Namba ya Simu: " + document.getElementById("phoneNumber").value + "\n" +
+  "Zoni: " + document.getElementById("zone").value + "\n\n" +
+  "Je, taarifa hizi ni sahihi?"
+);
+
+if (!confirmSubmit) {
+  showMessage(
+    "error",
+    "<strong>Fomu haijatumwa.</strong><br>Tafadhali rekebisha taarifa zako kisha jaribu tena."
+  );
+  return;
+}
+      
       const formData = new FormData();
       formData.append('Jina Kamili', document.getElementById('fullName').value);
       formData.append('Namba ya Simu', document.getElementById('phoneNumber').value);
